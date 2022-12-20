@@ -43,55 +43,106 @@ wymagania w j. angielskim:
 
 plan:
 Dish: This object could have the following attributes:
+
 name: a string representing the name of the dish
+
 price: a float representing the price of the dish
+
 description: a string describing the dish
+
 image: a string representing the file path of an image of the dish (optional)
+
 It could also have the following methods:
+
 get_name(): returns the name of the dish
+
 get_price(): returns the price of the dish
+
 get_description(): returns the description of the dish
+
 get_image(): returns the file path of the image of the dish (if it exists)
+
 Category: This object could have the following attributes:
+
 name: a string representing the name of the category
+
 dishes: a list of Dish objects representing the dishes in the category
+
 It could also have the following methods:
+
 get_name(): returns the name of the category
+
 get_dishes(): returns the list of dishes in the category
+
 add_dish(dish): adds a Dish object to the list of dishes in the category
+
 remove_dish(dish): removes a Dish object from the list of dishes in the category
+
 Menu: This object could have the following attributes:
+
 categories: a list of Category objects representing the categories in the menu
+
 It could also have the following methods:
 get_categories(): returns the list of categories in the menu
+
 add_category(category): adds a Category object to the list of categories in the menu
+
 remove_category(category): removes a Category object from the list of categories in the menu
+
 Order: This object could have the following attributes:
+
 dishes: a list of Dish objects representing the dishes in the order
+
 total_price: a float representing the total price of the order
+
 It could also have the following methods:
+
 get_dishes(): returns the list of dishes in the order
+
 get_total_price(): returns the total price of the order
+
 add_dish(dish): adds a Dish object to the list of dishes in the order and updates the total price
+
 remove_dish(dish): removes a Dish object from the list of dishes in the order and updates the total price
+
 Bill: This object could have the following attributes:
+
 order: an Order object representing the order for which the bill is being generated
+
 date: a string representing the date when the bill was generated
+
 type: a string representing the type of the bill (invoice or receipt)
+
 It could also have the following methods:
+
 get_order(): returns the Order object for which the bill is being generated
+
 get_date(): returns the date when the bill was generated
+
 get_type(): returns the type of the bill (invoice or receipt)
+
 here is the remainder of the description for the Application object:
+
 This object could have the following attributes:
+
 menu: a Menu object representing the menu of the restaurant
+
 orders: a list of Order objects representing the orders placed by customers
+
 bills: a list of Bill objects representing the bills generated for orders
+
 It could also have the following methods:
+
 get_menu(): returns the Menu object representing the menu of the restaurant
+
 get_orders(): returns the list of Order objects representing the orders placed by customers
+
 get_bills(): returns the list of Bill objects representing the bills generated for orders
+
 place_order(order): adds an Order object to the list of orders and generates a Bill object for the order
+
 cancel_order(order): removes an Order object from the list of orders and removes the corresponding Bill object (if it exists)
+
 add_dish_to_menu(dish, category): adds a Dish object to the specified Category object in the menu
+
 remove_dish_from_menu(dish, category): removes a Dish object from the specified Category object in the menu
