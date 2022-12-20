@@ -1,0 +1,653 @@
+class Dish:
+    def __init__(self, name, price, ingredients):
+        self.name = name
+        self.price = price
+        self.ingredients = ingredients
+    
+    def display(self):
+        # display information about the dish
+        pass
+
+class Category(Dish):
+    def __init__(self, name):
+        self.name = name
+        self.dishes = []
+    
+    def add_dish(self, dish):
+        # add a dish to the category
+        pass
+    
+    def remove_dish(self, dish):
+        # remove a dish from the category
+        pass
+    
+    def display(self):
+        # display all the dishes in the category
+        pass
+
+class Menu:
+    def __init__(self):
+        self.categories = []
+    
+    def add_category(self, category):
+        # add a category to the menu
+        pass
+    
+    def remove_category(self, category):
+        # remove a category from the menu
+        pass
+    
+    def display(self):
+        # display the entire menu
+        pass
+
+class Order:
+    def __init__(self):
+        self.dishes = []
+    
+    def add_dish(self, dish):
+        # add a dish to the order
+        pass
+    
+    def remove_dish(self, dish):
+        # remove a dish from the order
+        pass
+    
+    def display(self):
+    # display the dishes in the order
+    pass
+    
+    
+    
+    
+ // to innna częśc teraz
+    
+    
+using System;
+using System.Collections.Generic;
+
+// Dish object
+public class Dish
+{
+    // Attributes
+    private string name;
+    private float price;
+    private string description;
+    private string image;
+
+    // Constructor
+    public Dish(string name, float price, string description, string image = "")
+    {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.image = image;
+    }
+
+    // Getters
+    public string GetName()
+    {
+        return name;
+    }
+
+    public float GetPrice()
+    {
+        return price;
+    }
+
+    public string GetDescription()
+    {
+        return description;
+    }
+
+    public string GetImage()
+    {
+        return image;
+    }
+}
+
+// Category object
+public class Category
+{
+    // Attributes
+    private string name;
+    private List<Dish> dishes;
+
+    // Constructor
+    public Category(string name)
+    {
+        this.name = name;
+        dishes = new List<Dish>();
+    }
+
+    // Getters
+    public string GetName()
+    {
+        return name;
+    }
+
+    public List<Dish> GetDishes()
+    {
+        return dishes;
+    }
+
+    // Other methods
+    public void AddDish(Dish dish)
+    {
+        dishes.Add(dish);
+    }
+
+    public void RemoveDish(Dish dish)
+    {
+        dishes.Remove(dish);
+    }
+}
+
+// Menu object
+public class Menu
+{
+    // Attributes
+    private List<Category> categories;
+
+    // Constructor
+    public Menu()
+    {
+        categories = new List<Category>();
+    }
+
+    // Getter
+    public List<Category> GetCategories()
+    {
+        return categories;
+    }
+
+    // Other methods
+    public void AddCategory(Category category)
+    {
+        categories.Add(category);
+    }
+
+    public void RemoveCategory(Category category)
+    {
+        categories.Remove(category);
+    }
+}
+
+// Order object
+public class Order
+{
+    // Attributes
+    private List<Dish> dishes;
+    private float totalPrice;
+
+    // Constructor
+    public Order()
+    {
+        dishes = new List<Dish>();
+        totalPrice = 0;
+    }
+
+    // Getters
+    public List<Dish> GetDishes()
+    {
+        return dishes;
+    }
+
+    public float GetTotalPrice()
+    {
+        return totalPrice;
+    }
+
+    // Other methods
+    public void AddDish(Dish dish)
+    {
+        dishes.Add(dish);
+        totalPrice += dish.GetPrice();
+    }
+
+    public void RemoveDish(Dish dish)
+    {
+        dishes.Remove(dish);
+        totalPrice -= dish.GetPrice();
+    }
+}
+
+// Bill object
+public class Bill
+{
+    // Attributes
+    private Order order;
+    private string date;
+    private string type;
+
+    // Constructor
+    public Bill(Order order, string
+
+// Bill object (continued)
+public Bill(Order order, string type)
+{
+    this.order = order;
+    date = DateTime.Now.ToString("yyyy-MM-dd");
+    this.type = type;
+}
+
+// Getters
+public Order GetOrder()
+{
+    return order;
+}
+
+public string GetDate()
+{
+    return date;
+}
+
+public string GetType()
+{
+    return type;
+}
+
+// Application object
+public class Application
+{
+    // Attributes
+    private Menu menu;
+    private List<Order> orders;
+    private List<Bill> bills;
+
+    // Constructor
+    public Application()
+    {
+        menu = new Menu();
+        orders = new List<Order>();
+        bills = new List<Bill>();
+    }
+
+    // Getters
+    public Menu GetMenu()
+    {
+        return menu;
+    }
+
+    public List<Order> GetOrders()
+    {
+        return orders;
+    }
+
+    public List<Bill> GetBills()
+    {
+        return bills;
+    }
+
+    // Other methods
+    public void PlaceOrder(Order order)
+    {
+        orders.Add(order);
+        bills.Add(new Bill(order, "receipt"));
+    }
+
+    public void CancelOrder(Order order)
+    {
+        orders.Remove(order);
+
+        // Find and remove corresponding bill
+        foreach (Bill bill in bills)
+        {
+            if (bill.GetOrder() == order)
+            {
+                bills.Remove(bill);
+                break;
+            }
+        }
+    }
+
+    public void AddDishToMenu(Dish dish, Category category)
+    {
+        category.AddDish(dish);
+    }
+
+    public void RemoveDishFromMenu(Dish dish, Category category)
+    {
+        category.RemoveDish(dish);
+    }
+}
+
+#—----------------------
+public abstract class DishType
+{
+    // Attributes
+    private string type;
+
+    // Constructor
+    public DishType(string type)
+    {
+        this.type = type;
+    }
+
+    // Getter
+    public string GetType()
+    {
+        return type;
+    }
+}
+
+public class VeganDish : DishType
+{
+    // Constructor
+    public VeganDish() : base("Vegan") {}
+}
+
+public class MeatDish : DishType
+{
+    // Constructor
+    public MeatDish() : base("Meat") {}
+}
+
+// Dish object
+public class Dish
+{
+    // Attributes
+    private string name;
+    private float price;
+    private string description;
+    private string image;
+    private DishType dishType;
+
+    // Constructor
+    public Dish(string name, float price, string description, DishType dishType, string image = "")
+    {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.dishType = dishType;
+        this.image = image;
+    }
+
+    // Getters
+    public string GetName()
+    {
+        return name;
+    }
+
+    public float GetPrice()
+    {
+        return price;
+    }
+
+    public string GetDescription()
+    {
+        return description;
+    }
+
+    public DishType GetDishType()
+    {
+        return dishType;
+    }
+
+    public string GetImage()
+    {
+        return image;
+    }
+}
+
+//With this implementation, you can now create Dish objects that have a DishType attribute, which can be either a VeganDish or a MeatDish object. You can also easily add additional types of dishes by defining new child classes of DishType.
+//—---------------------------------------
+
+// Dish object
+public class Dish
+{
+    // Other methods
+    public static void AddDish(Dish dish)
+    {
+        // Add the dish to the system (e.g. database, list, etc.)
+    }
+
+    public static void DeleteDish(Dish dish)
+    {
+        // Delete the dish from the system (e.g. database, list, etc.)
+    }
+
+    public static void DisplayDish(Dish dish)
+    {
+    Console.WriteLine("Name: " + dish.GetName());
+    Console.WriteLine("Price: " + dish.GetPrice());
+    Console.WriteLine("Description: " + dish.GetDescription());
+    Console.WriteLine("Type: " + dish.GetDishType().GetType());
+    Console.WriteLine("Image: " + dish.GetImage());
+}
+
+public static List<Dish> SearchDishes(string name = "", float minPrice = 0, float maxPrice = float.MaxValue, DishType dishType = null)
+{
+    // Search for dishes in the system based on the specified criteria
+    // Return a list of matching dishes
+}
+
+// Category object
+public class Category
+{
+    // Other methods
+    public static void AddCategory(Category category)
+    {
+        // Add the category to the system (e.g. database, list, etc.)
+    }
+
+    public static void DeleteCategory(Category category)
+    {
+        // Delete the category from the system (e.g. database, list, etc.)
+    }
+
+    public static void DisplayCategory(Category category)
+    {
+        Console.WriteLine("Name: " + category.GetName());
+        Console.WriteLine("Dishes: ");
+
+        foreach (Dish dish in category.GetDishes())
+        {
+            Dish.DisplayDish(dish);
+            Console.WriteLine();
+        }
+    }
+
+    public static List<Category> SearchCategories(string name = "")
+    {
+        // Search for categories in the system based on the specified criteria
+        // Return a list of matching categories
+    }
+}
+
+// Menu object
+public class Menu
+{
+    // Other methods
+    public static void AddMenu(Menu menu)
+    {
+        // Add the menu to the system (e.g. database, list, etc.)
+    }
+
+    public static void DeleteMenu(Menu menu)
+    {
+        // Delete the menu from the system (e.g. database, list, etc.)
+    }
+
+    public static void DisplayMenu(Menu menu)
+    {
+        Console.WriteLine("Categories: ");
+
+        foreach (Category category in menu.GetCategories())
+        {
+            Category.DisplayCategory(category);
+            Console.WriteLine();
+        }
+    }
+
+    public static List<Menu> SearchMenu(string categoryName = "")
+    {
+        // Search for menus in the system based on the specified criteria
+        // Return a list of matching menus
+    }
+}
+
+// Order object
+public class Order
+{
+    // Other methods
+    public static void AddOrder(Order order)
+    {
+        // Add the order to the system (e.g. database, list, etc.)
+    }
+
+    public static void DeleteOrder(Order order)
+    {
+        // Delete the order from the system (e.g. database, list, etc.)
+    }
+
+
+public static void DisplayOrder(Order order)
+{
+    foreach (Dish dish in order.GetDishes())
+    {
+        Dish.DisplayDish(dish);
+        Console.WriteLine();
+    }
+
+    Console.WriteLine("Total price: " + order.GetTotalPrice());
+}
+
+public static List<Order> SearchOrders(float minTotalPrice = 0, float maxTotalPrice = float.MaxValue, string dishName = "")
+{
+    // Search for orders in the system based on the specified criteria
+    // Return a list of matching orders
+}
+
+// Bill object
+public class Bill
+{
+    // Other methods
+    public static void AddBill(Bill bill)
+    {
+        // Add the bill to the system (e.g. database, list, etc.)
+    }
+
+    public static void DeleteBill(Bill bill)
+    {
+        // Delete the bill from the system (e.g. database, list, etc.)
+    }
+
+    public static void DisplayBill(Bill bill)
+    {
+        Order.DisplayOrder(bill.GetOrder());
+        Console.WriteLine("Date: " + bill.GetDate());
+        Console.WriteLine("Type: " + bill.GetType());
+    }
+
+
+public static List<Bill> SearchBills(string type = "", string startDate = "", string endDate = "")
+{
+    // Search for bills in the system based on the specified criteria
+    // Return a list of matching bills
+}
+
+Interfaces:
+/* An interface is a set of related methods that a class can implement. By using interfaces, you can create a standard set of behaviors that can be shared by multiple classes.
+Here is an example of how you could define an interface for the Dish class:
+Copy code
+public interface IDish { string GetName(); float GetPrice(); string GetDescription(); DishType GetDishType(); string GetImage(); } public class Dish : IDish { // Implement interface methods }
+You can then use the IDish interface to define a standard set of behaviors for the Dish class, and ensure that any class that implements the interface has the same set of methods.
+Singleton:
+The Singleton design pattern is used to ensure that a class has only one instance, and provides a global access point to that instance.
+Here is an example of how you could implement the Singleton pattern for the Application class: */
+public sealed class Application
+{
+    private static Application instance = null;
+    private static readonly object padlock = new object();
+
+    private Application() {}
+
+    public static Application Instance
+    {
+        get
+        {
+            lock (padlock)
+            {
+                if (instance == null)
+                {
+                    instance = new Application();
+                }
+                return instance;
+            }
+        }
+    }
+}
+
+
+/* With this implementation, you can use the Application.Instance property to access the single instance of the Application class from anywhere in your code.
+Factory:
+The Factory design pattern is used to create objects in a super class, but allow subclasses to alter the type of objects that will be created.
+Here is an example of how you could implement the Factory pattern for the Dish class: */
+public abstract class DishFactory
+{
+    public abstract Dish CreateDish(string name, float price, string description, DishType dishType, string image = "");
+}
+
+public class VeganDishFactory : DishFactory
+{
+    public override Dish CreateDish(string name, float price, string description, DishType dishType, string image = "")
+    {
+        return new Dish(name, price, description, new VeganDish(), image);
+    }
+}
+
+public class MeatDishFactory : DishFactory
+{
+    public override Dish CreateDish(string name, float price, string description, DishType dishType, string image = "")
+    {
+        return new Dish(name, price, description, new MeatDish(), image);
+    }
+}
+
+/* Decorator:
+The Decorator design pattern is used to add new behavior to an existing object dynamically.
+Here is an example of how you could implement the Decorator pattern for the Dish class: */
+public abstract class DishDecorator : Dish
+{
+    protected Dish dish;
+
+    public DishDecorator(Dish dish) : base(dish.GetName(), dish.GetPrice(), dish.GetDescription(), dish.GetDishType(), dish.GetImage())
+    {
+        this.dish = dish;
+    }
+}
+
+public class SpicyDishDecorator : DishDecorator
+{
+    public SpicyDishDecorator(Dish dish) : base(dish) {}
+
+    public override string GetDescription()
+    {
+        return dish.GetDescription() + " (Spicy)";
+    }
+}
+
+public class GlutenFreeDishDecorator : DishDecorator
+{
+    public GlutenFreeDishDecorator(Dish dish) :
+
+public class GlutenFreeDishDecorator : DishDecorator
+{
+    public GlutenFreeDishDecorator(Dish dish) : base(dish) {}
+
+    public override string GetDescription()
+    {
+        return dish.GetDescription() + " (Gluten-free)";
+    }
+}
+
+// Example usage
+Dish spicyDish = new SpicyDishDecorator(new Dish("Spicy pasta", 15.99f, "Spicy pasta with tomato sauce and ground beef", new MeatDish(), "spicy_pasta.jpg"));
+Console.WriteLine(spicyDish.GetDescription()); // Output: "Spicy pasta with tomato sauce and ground beef (Spicy)"
+
+Dish glutenFreeDish = new GlutenFreeDishDecorator(new Dish("Gluten-free pizza", 18.99f, "Gluten-free pizza with tomato sauce, mozzarella cheese and vegetables", new VeganDish(), "gluten_free_pizza.jpg"));
+Console.WriteLine(glutenFreeDish.GetDescription()); // Output: "Gluten-free pizza with tomato sauce, mozzarella cheese and vegetables (Gluten-free)"
+
+//With this implementation, you can use the SpicyDishDecorator and GlutenFreeDishDecorator classes to add "spicy" and "gluten-free" behaviors to Dish objects, respectively.
+
