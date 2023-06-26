@@ -1,0 +1,15 @@
+C:\Users\julie\source\repos\AIRestaurantFinal\bin\Debug\net7.0\AIRestaurantFinal.exe
+C:\Users\julie\source\repos\AIRestaurantFinal\bin\Debug\net7.0\AIRestaurantFinal.deps.json
+C:\Users\julie\source\repos\AIRestaurantFinal\bin\Debug\net7.0\AIRestaurantFinal.runtimeconfig.json
+C:\Users\julie\source\repos\AIRestaurantFinal\bin\Debug\net7.0\AIRestaurantFinal.dll
+C:\Users\julie\source\repos\AIRestaurantFinal\bin\Debug\net7.0\AIRestaurantFinal.pdb
+C:\Users\julie\source\repos\AIRestaurantFinal\obj\Debug\net7.0\AIRestaurantFinal.csproj.AssemblyReference.cache
+C:\Users\julie\source\repos\AIRestaurantFinal\obj\Debug\net7.0\AIRestaurantFinal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\julie\source\repos\AIRestaurantFinal\obj\Debug\net7.0\AIRestaurantFinal.AssemblyInfoInputs.cache
+C:\Users\julie\source\repos\AIRestaurantFinal\obj\Debug\net7.0\AIRestaurantFinal.AssemblyInfo.cs
+C:\Users\julie\source\repos\AIRestaurantFinal\obj\Debug\net7.0\AIRestaurantFinal.csproj.CoreCompileInputs.cache
+C:\Users\julie\source\repos\AIRestaurantFinal\obj\Debug\net7.0\AIRestaurantFinal.dll
+C:\Users\julie\source\repos\AIRestaurantFinal\obj\Debug\net7.0\refint\AIRestaurantFinal.dll
+C:\Users\julie\source\repos\AIRestaurantFinal\obj\Debug\net7.0\AIRestaurantFinal.pdb
+C:\Users\julie\source\repos\AIRestaurantFinal\obj\Debug\net7.0\AIRestaurantFinal.genruntimeconfig.cache
+C:\Users\julie\source\repos\AIRestaurantFinal\obj\Debug\net7.0\ref\AIRestaurantFinal.dll
